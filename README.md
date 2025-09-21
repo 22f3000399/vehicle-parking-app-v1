@@ -1,28 +1,63 @@
-# Vehicle Parking App - V1
+# Vehicle Parking Management System
 
-## Overview
-This is a multi-user vehicle parking management application built with **Flask** (backend), **Jinja2, HTML, CSS, Bootstrap** (frontend), and **SQLite** (database). The app supports two roles:
+A web-based system to manage urban parking efficiently with **real-time spot allocation**, **user/admin roles**, and **analytics dashboards**.  
 
-- **Admin (Superuser):** Manages parking lots, parking spots, and monitors parking statuses.
-- **User:** Registers, logs in, and reserves parking spots automatically assigned by the app.
+This project was built as part of the **MAD-1 Project @ IIT Madras Bootcamp**, where I designed, coded, and demoed it live.
+
+---
 
 ## Features
+- Real-time parking spot allocation  
+- User and Admin role-based access  
+- Booking and reservation management  
+- Parking data visualization with charts  
+- Authentication (login/logout system)  
 
-### Admin
-- Superuser with no registration required (pre-created in the database).
-- Create, edit, and delete parking lots.
-- Each parking lot has multiple parking spots generated automatically based on the maximum capacity.
-- View status of all parking spots and details of occupied spots.
-- View all registered users and summary charts of parking lots and spots.
-
-### User
-- Register and login functionality.
-- Choose an available parking lot.
-- Book the first available parking spot automatically.
-- Release/vacate the parking spot.
-- View parking history and summary charts.
+---
 
 ## Technologies Used
-- **Backend:** Flask
-- **Frontend:** Jinja2 templates, HTML, CSS, Bootstrap
-- **Database:** SQLite (created programmatically, no manual DB setup)
+- **Flask (App + API):** Backend logic, routing, RESTful endpoints  
+- **SQLite + SQLAlchemy:** Data modeling & persistence  
+- **HTML + Jinja2:** Dynamic template rendering  
+- **Bootstrap + CSS:** Responsive UI styling  
+- **JavaScript:** Interactivity, form validation, dynamic dashboards  
+- **Authentication:** Session-based login/logout with role differentiation  
+
+---
+
+## Setup Instructions
+
+To create a virtual environment, run:
+
+```bash
+# For Linux and macOS
+python3 -m venv .env
+# For Windows
+python -m venv .env
+```
+
+To activate the virtual environment, use the following command:
+
+```bash
+source .env/bin/activate
+```
+
+Once you have activated the virtual environment, you can install the required packages using the following command provided 'requirements.txt' is present in the same directory:
+
+```bash
+pip install -r requirements.txt
+```
+or you can install the packages individually:
+
+```bash
+pip install flask
+pip install flask_sqlalchemy
+```
+
+To run the Flask application, use the following command:
+
+```bash
+python app.py
+```
+provided 'app.py' is the main file of your Flask application.
+

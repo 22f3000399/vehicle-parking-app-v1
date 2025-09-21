@@ -1,13 +1,21 @@
-from flask import Flask, render_template, request, redirect
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import current_user
+from flask import Flask
+from controllers.create_database_instance import create_tables
+from controllers.database import db
+from controllers.config import Config
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
+    app.config.from_object(Config)
+    db.init_app(app)
+    
+    return app
 
-import config
-import models
-import routes
+app = create_app()
 
-@app.context_processor
-def inject_user():
-    return dict(current_user=current_user)
+# Import routes after app creation to avoid circular imports
+from controllers.general_routes import *
+
+if __name__ == '__main__':
+    with app.app_context():
+        create_tables()
+    app.run(debug=True) 
